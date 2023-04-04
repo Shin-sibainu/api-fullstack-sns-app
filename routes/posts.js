@@ -9,14 +9,24 @@ const prisma = new PrismaClient();
 //呟き取得用API(最新の10投稿まで取得)
 //もっと見るボタンで次の10件をリクエストしても可
 //フォローしてるユーザーだけ取得は未実装(Userモデルを変更する必要あり)
-router.get("/get_post", async (req, res) => {
-  const allPosts = await prisma.post.findMany();
-
-  if (!allPosts) {
-    return res.json({ message: "投稿がありません" });
+router.get("/get_latest_post", async (req, res) => {
+  try {
+    const latestPosts = await prisma.post.findMany({
+      take: 10,
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        author: true,
+      },
+    });
+    return res.json(latestPosts);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching the latest posts." });
   }
-
-  return res.json({ allPosts });
 });
 
 //投稿用API
@@ -32,6 +42,9 @@ router.post("/post", isAuthenticated, async (req, res) => {
       data: {
         content,
         authorId: req.userId, //だれが投稿したのかがこれで判別可能
+      },
+      include: {
+        author: true,
       },
     });
 

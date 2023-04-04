@@ -16,6 +16,7 @@ model User {
   email String @unique
   password String
   posts Post[]
+  profile Profile? // Profileモデルとの関連付けを追加
 }
 
 model Post {
@@ -24,4 +25,12 @@ model Post {
   createdAt DateTime @default(now())
   authorId Int
   author User @relation(fields: [authorId], references: [id])
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  bio String? // 自己紹介文を追加
+  profileImageUrl String? // プロフィール画像のURLを追加
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
 }
