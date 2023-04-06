@@ -30,7 +30,11 @@ router.get("/profile/:userId", async (req, res) => {
         userId: parseInt(userId), //Profileにデータがないから探せてない。手動で入れてみた。
       },
       include: {
-        user: true,
+        user: {
+          include: {
+            profile: true,
+          },
+        },
       },
     });
     if (!profile) {

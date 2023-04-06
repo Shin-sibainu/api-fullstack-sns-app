@@ -12,9 +12,11 @@
   "dependencies": {
     "@prisma/client": "^4.11.0",
     "bcrypt": "^5.1.0",
+    "boring-avatars": "^1.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "identicon.js": "^2.3.3",
     "jsonwebtoken": "^9.0.0",
     "nodemon": "^2.0.21",
     "prisma": "^4.11.0"
