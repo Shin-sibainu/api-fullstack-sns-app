@@ -5,6 +5,8 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const cors = require("cors");
+const serverless = require("serverless-http");
+module.exports.handler = serverless(app);
 
 const PORT = 5000;
 
