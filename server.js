@@ -6,17 +6,11 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const cors = require("cors");
 const serverless = require("serverless-http");
-module.exports.handler = serverless(app);
 
-const PORT = 5000;
-
-//https://github.com/Shin-sibainu/notion-clone-server/tree/main/src/v1
-
-// app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/users", userRoute);
 
-app.listen(PORT, () => console.log("server running"));
+module.exports.handler = serverless(app);
