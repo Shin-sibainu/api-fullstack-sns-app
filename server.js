@@ -9,6 +9,7 @@ const serverlessExpress = require("@vendia/serverless-express");
 const PORT = 5000;
 
 if (process.env.NODE_ENV !== "production") {
+  console.log(process.env.NODE_ENV);
   app.listen(PORT, () => {
     console.log("server is running");
   });
