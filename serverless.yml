@@ -38,7 +38,7 @@ custom:
     httpPort: 3000
 
 package:
-  excludeDevDependencies: true
+  excludeDevDependencies: false
   exclude:
     - ./**
     - "!server.js"
