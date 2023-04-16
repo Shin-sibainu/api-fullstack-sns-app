@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "lambda.js",
   "scripts": {
     "dev": "nodemon server.js"
   },
@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.11.0",
+    "@prisma/client": "^4.12.0",
     "@vendia/serverless-express": "^4.10.1",
+    "aws-sdk": "^2.1359.0",
     "bcrypt": "^5.1.0",
     "boring-avatars": "^1.7.0",
     "cors": "^2.8.5",
@@ -21,9 +22,16 @@
     "jsonwebtoken": "^9.0.0",
     "nodemon": "^2.0.21",
     "prisma": "^4.11.0",
-    "serverless-http": "^3.2.0"
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-http": "^3.2.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-tracing": "^2.0.0"
   },
   "volta": {
     "node": "14.21.3"
+  },
+  "devDependencies": {
+    "@serverless/dashboard-plugin": "^6.2.3",
+    "serverless": "^3.30.1"
   }
 }

@@ -30,6 +30,8 @@ router.post("/register", async (req, res) => {
     },
   });
 
+  // await prisma.$disconnect();
+
   return res.json({ user });
 });
 
