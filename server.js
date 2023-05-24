@@ -22,6 +22,9 @@ const PORT = 5000;
 //prisma公式
 //https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-aws-lambda
 
+//expressをvercelへデプロイ
+//https://qiita.com/iwasaki-hub/items/9a7f1cf172887ee32fb2
+
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
